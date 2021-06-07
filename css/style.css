@@ -19,7 +19,6 @@ body {
 
 /*! Variables */
 :root {
-  --softfam: sofia-pro-soft, "Lucida Sans", Verdana, sans-serif;
   --edgyfam: sofia-pro, "Lucida Sans", Verdana, sans-serif;
   --narrowfam: sofia-pro-condensed, "Arial Narrow", "Lucida Sans", Verdana, sans-serif;
 
@@ -114,10 +113,13 @@ body {
 h1,
 h2,
 h2 > button {
-  font-family: var(--softfam);
+  font-family: var(--edgyfam);
   font-size: var(--sectiontitle);
   font-weight: 500;
   line-height: 112.5%;
+}
+.sectiongrid__title button {
+  text-transform: uppercase;
 }
 h3 {
   font-size: var(--itemtitle);
@@ -272,7 +274,7 @@ p {
 }
 .visuallyhidden {
   border: 0;
-  clip: rect(0, 0, 0, 0);
+  clip-path: rect(0, 0, 0, 0);
   height: 1px;
   width: 1px;
   margin: -1px;
@@ -293,7 +295,8 @@ button {
   color: var(--white);
   font-weight: 400;
   line-height: 100%;
-  font-family: var(--softfam);
+  letter-spacing: 0.05em;
+  font-family: var(--edgyfam);
   text-transform: uppercase;
   font-size: var(--bodybutton);
 }
@@ -521,8 +524,8 @@ button {
     }
   }
 }
-/*! Outer framework styling */
 
+/*! Hero header */
 main {
   position: relative;
   margin-top: clamp(6.25rem, -8.9179rem + 48.5373vw, 14.38rem);
@@ -536,6 +539,7 @@ main {
   margin-bottom: 258px;
 }
 .header__title {
+  position: relative;
   margin-bottom: 10px;
 }
 .header__text {
@@ -551,7 +555,11 @@ main {
   .header__text {
     max-width: 553px;
   }
+
+  /* Animating title */
 }
+
+/*! Outer framework styling */
 .sectiongrid {
   display: grid;
   row-gap: 20px;
@@ -585,9 +593,14 @@ main {
     "aside  info" min-content
     "text   text" max-content
     "ideals ideals" 1fr
-    / 1fr auto;
+    / min-content auto;
   column-gap: 15px;
+  row-gap: 30px;
+  align-items: start;
+  justify-items: start;
 }
+
+/** About */
 .about__textblock {
   grid-area: text;
   max-width: 694px;
@@ -595,18 +608,22 @@ main {
 .about__list-text {
   margin-bottom: var(--tinypadding);
 }
+.about__info-skills li:nth-child(2) p {
+  margin-bottom: 0;
+}
 .about__imagewrap {
   grid-area: aside;
   overflow: hidden;
-  min-height: 351px;
-  height: calc(216.7536px + 41.9643vw);
-  max-height: 479px;
+  /* min-height: 351px;
+  height: calc(216.7536px + 41.9643vw); */
+  min-height: 330px;
+  height: calc(259.2857px + 22.0982vw);
+  max-height: 429px;
   min-width: 119px;
   width: calc(-52.4432px + 53.5786vw);
   max-width: 359px;
 }
 .content__image--about {
-  width: clamp(235px, 146.4688px + 27.6786vw, 359px);
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -621,17 +638,23 @@ main {
 .about__info-skills {
   margin-bottom: var(--internalpadding);
 }
+.about__info {
+  --marginscale: 3.75px;
+  --marginscale: clamp(3.75px, -3.1731px + 2.1635vw, 15px);
+}
 .about__info .content__title {
   margin-bottom: var(--tinypadding);
+  margin-bottom: clamp(15px, 4.2864px + 3.3482vw, 30px);
 }
 .about__info-contact .about__list {
-  margin: calc((7.5px / 2) * -1);
+  margin: calc(var(--marginscale) * -1);
   display: flex;
 }
 .about__info-contact .about__list > * {
-  margin: calc(7.5px / 2);
+  margin: var(--marginscale);
 }
 .about__link {
+  white-space: nowrap;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -640,7 +663,9 @@ main {
   transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
 }
 .about__link img {
-  width: 42px;
+  min-width: 42px;
+  width: calc(1.5536rem + 5.3571vw);
+  max-width: 67px;
   height: auto;
 }
 .about__link:hover,
@@ -648,32 +673,38 @@ main {
   opacity: 1;
   transform: scale(1.05);
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 780px) {
   .content__wrap {
     display: grid;
     grid-template:
       "text   aside" min-content
       "text   info" 1fr
       "ideals ideals" 1fr
-      / 1fr min-content;
-    column-gap: 60px;
+      / auto min-content;
+    column-gap: 30px;
+    justify-content: space-between;
   }
   .about__textblock {
     grid-area: text;
     max-width: 694px;
   }
-  .about__imagewrap {
-    grid-area: aside;
+  .about__list-title {
+    margin-bottom: var(--tinypadding);
+  }
+  .about__list-text {
+    margin-bottom: var(--internalpadding);
+  }
+  .about__info-skills {
+    margin-bottom: var(--siblingpadding);
+  }
+  .about__info {
+    --marginscale: 15px;
   }
   .about__imagewrap {
-    overflow: hidden;
-    width: 386px;
-    max-height: 282px;
-  }
-  .about__info-contact .about__list {
-    margin: calc(var(--tinypadding) * -1);
-  }
-  .about__info-contact .about__list > * {
-    margin: var(--tinypadding);
+    margin-bottom: var(--internalpadding);
+    width: calc(-1040.0204px + 127.551vw);
+    min-width: 261px;
+    max-height: 380px;
+    max-width: 386px;
   }
 }
