@@ -2,7 +2,8 @@ const menuBar = document.querySelector(".navblock__bars");
 const lowerBlock = document.querySelector(".navblock__lower");
 const header = document.querySelector("body > header");
 const anchorArray = document.querySelectorAll("a");
-let resizeTimer;
+const sectionButtons = document.querySelectorAll(".sectiongrid__title button");
+
 /* To prevent jankiness from link click events */
 function noBubble(e) {
   e.stopPropagation();
@@ -16,7 +17,6 @@ function openMenu() {
     setTimeout(function () {
       lowerBlock.classList.remove("navblock__lower--vanish");
       lowerBlock.classList.add("navblock__lower--hide");
-      console.log("aight");
     }, 250);
   } else {
     lowerBlock.classList.remove("navblock__lower--hide");
@@ -34,4 +34,15 @@ lowerBlock.addEventListener("click", function (e) {
 menuBar.addEventListener("click", openMenu);
 for (let anchor of anchorArray) {
   anchor.addEventListener("click", noBubble);
+}
+
+for (let button of sectionButtons) {
+  button.addEventListener("click", function () {
+    if (this.classList.contains("expanded")) {
+      this.setAttribute("aria-expanded", "false");
+    } else {
+      this.setAttribute("aria-expanded", "true");
+    }
+    this.classList.toggle("expanded");
+  });
 }
