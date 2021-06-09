@@ -46,3 +46,16 @@ for (let button of sectionButtons) {
     this.classList.toggle("expanded");
   });
 }
+
+// It seems webkit renders smallcaps slightly smaller than Gecko and other browsers, this is to remedy that.
+if (navigator.userAgent.includes("Chrome") || navigator.userAgent.includes("Safari")) {
+  const smallcaps = document.querySelectorAll(".smallcaps, .smallcaps--all");
+  console.log(window.getComputedStyle(smallcaps[0]).getPropertyValue("font-size"));
+  for (let element of smallcaps) {
+    let text = element.innerHTML;
+    let weight = Number(window.getComputedStyle(element).getPropertyValue("font-weight"));
+    console.log(weight);
+    if (weight === 700) element.style.fontWeight = `${weight + 100}`;
+    element.innerHTML = `<span class="webkit-fix">${text}</span>`;
+  }
+}
