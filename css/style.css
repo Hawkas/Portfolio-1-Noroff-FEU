@@ -120,9 +120,6 @@ h2 > button {
   font-weight: 500;
   line-height: 112.5%;
 }
-.sectiongrid__title button {
-  text-transform: uppercase;
-}
 h3 {
   font-size: var(--itemtitle);
   line-height: 112.5%;
@@ -311,6 +308,7 @@ button {
   align-items: flex-start;
   padding: 20px 25px;
   border-radius: 25px;
+  border: 3px solid transparent;
   background-color: var(--buttoncolor);
   color: var(--white);
   font-weight: 400;
@@ -565,6 +563,12 @@ main {
 .header__text {
   max-width: 453px;
 }
+.header__button:hover {
+  background-color: rgba(0, 52, 72, 0.9);
+}
+.header__button:focus {
+  border: 3px solid var(--lightblue);
+}
 @media only screen and (min-width: 768px) {
   main {
     margin-top: 230px;
@@ -588,16 +592,59 @@ main {
 }
 .sectiongrid__title button {
   color: var(--white);
+  position: relative;
   text-align: left;
   width: 100%;
-  padding: 90px var(--containerpadding) 60px;
+  padding: var(--siblingpadding) var(--containerpadding);
   background-color: var(--darkblue);
+  border: 5px solid transparent;
+  cursor: pointer;
   border-radius: 25px;
-  transition: border-radius 0.25s;
+  transition: border-radius 0.1s linear 0.2s, border-color 0.1s ease-in-out, background-color 0.25s ease-in-out;
+}
+.sectiongrid__title button::after,
+.sectiongrid__title button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: var(--containerpadding);
+  margin: auto 0;
+  display: block;
+  background-color: var(--white);
+  border-radius: 10px;
+  width: var(--sectiontitle);
+  height: 7px;
+}
+.sectiongrid__title button::before {
+  transform: rotate(90deg) scaleX(1);
+  transition: transform 0.15s ease-in;
+}
+.sectiongrid__title button:hover,
+.sectiongrid__title button:focus {
+  /* background-color: rgba(22, 112, 148, 0.9); */
+  border: 5px solid var(--white);
+}
+button.expanded::before {
+  transform: rotate(90deg) scaleX(0);
 }
 .sectiongrid__title .expanded {
+  transition: border-radius 0.1s linear;
   border-radius: 25px 25px 0 0;
 }
+.content__wrap {
+  overflow: hidden;
+  display: none;
+  transition: height 0.2s ease-out;
+  height: auto;
+}
+
+.no-js .content__wrap {
+  display: block;
+  height: auto;
+  transition: none;
+}
+
 .content {
   padding: 60px var(--containerpadding) var(--parentpadding);
   background-color: var(--white);
@@ -608,7 +655,7 @@ main {
   border-radius: 4px;
 }
 
-.content__wrap {
+.content--about {
   display: grid;
   grid-template:
     "aside  info" min-content
@@ -709,9 +756,9 @@ main {
   flex-flow: column;
   align-items: center;
 }
-.about__ideals .content__title {
+.about__ideals h3 {
   align-self: flex-start;
-  margin-bottom: var(--internalpadding);
+  margin-bottom: var(--siblingpadding);
 }
 .about__hexalist {
   width: 100%;
@@ -753,7 +800,7 @@ main {
 }
 
 @media only screen and (min-width: 780px) {
-  .content__wrap {
+  .content--about {
     display: grid;
     grid-template:
       "text   aside" 372px
@@ -795,7 +842,7 @@ main {
     .about__hexalist {
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(auto, 210px));
+      grid-template-columns: repeat(auto-fit, minmax(22.4375%, 210px));
       grid-template-rows: repeat(auto-fit, 50%);
       justify-content: space-between;
       row-gap: var(--internalpadding);
