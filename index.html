@@ -204,127 +204,113 @@
               <button id="projects-header" aria-controls="projects-content" aria-expanded="false">My Projects</button>
             </h2>
             <div id="projects-content" class="content__wrap">
-              <div class="content content--about">
-                <div class="content__item content__imagewrap about__imagewrap">
-                  <img
-                    srcset="./media/torbjorn-359w.jpg 1x, ./media/torbjorn-718w.jpg 2x"
-                    src="./media/torbjorn-359w.jpg"
-                    alt="Picture of Torbjørn Haukås"
-                    class="content__image content__image--about"
-                    width="359"
-                    height="539"
-                  />
-                </div>
-                <div class="content__item about__textblock">
-                  <p class="content__bodytext">
-                    Hi there, my name is Torbjørn. I’m a 25 year old Norwegian who has been studying front-end development since
-                    the summer of 2020.
-                  </p>
-                  <p class="content__bodytext">
-                    Before this began I worked at the operations department of Bergen’s port authority, and more recently I worked
-                    as a store employee at an electronics store, which is where I discovered how much I enjoy working with
-                    anything related to IT, despite never considering myself a very technical person.
-                  </p>
-                  <p class="content__bodytext">
-                    A friend I hadn’t met in years had recently completed his studies in front-end development and, as I’d never
-                    heard much about it before, I was intrigued. He explained that it’s a growing field with plenty of job
-                    opportunities, and went into detail about what his job involved.
-                  </p>
-                  <p class="content__bodytext">
-                    I immediately thought this could be something for me. So I looked into it further, and shortly afterwards I’d
-                    applied to study front-end development at Noroff Vocational School in Bergen.
-                  </p>
-                  <p class="content__bodytext">
-                    I didn’t know much about web-development beforehand, but I was more motivated than I’d ever been in my life. I
-                    wanted to make this work. So I put in the hours and made no compromises with myself. I didn't have to force
-                    myself for long though, as I soon found out I really enjoy doing this. So much that I even started exploring
-                    and experimenting with subjects outside of our curriculum in my spare time.
-                  </p>
-                  <p class="content__bodytext">
-                    Thanks to this mindset, I was able to learn more in this one year than any year before, and while my journey
-                    in web-development may have only just begun, I’m just as passionate as ever and I’m aiming to learn even more
-                    in the years to come.
-                  </p>
-                </div>
-                <aside class="content__item about__info">
-                  <div class="about__info-skills">
-                    <h3 class="content__title smallcaps--all">My skills</h3>
-                    <ul class="about__list">
-                      <li>
-                        <h4 class="about__list-title">Languages</h4>
-                        <p class="about__list-text">HTML, CSS, JavaScript</p>
-                      </li>
-                      <li>
-                        <h4 class="about__list-title">Front-End Tools</h4>
-                        <p class="about__list-text">WordPress, Figma, Illustrator, Photoshop</p>
-                      </li>
-                    </ul>
+              <div class="content content--projects">
+                <article aria-labelledby="gameblog-header" class="projects__item">
+                  <header class="projects__header">
+                    <picture class="content__imagewrap projects__primary-img">
+                      <source media="(max-width: 509px)" srcset="./media/gameblog-921w.jpg" />
+                      <source media="(min-width: 509px)" srcset="./media/gameblog-1580w.jpg" />
+                      <img src="./media/gameblog-1580w.jpg" width="637" height="384" alt="Screenshot of GameBlog" />
+                    </picture>
+                    <div class="projects__textblock">
+                      <h3 id="gameblog-header" class="content__title smallcaps">GameBlog</h3>
+                      <div class="projects__tags">
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                      </div>
+                      <p class="content__bodytext projects__introtext">
+                        This is my latest project, and my first site using JavaScript. We were tasked with designing and
+                        developing a blogsite using WordPress as a headless CMS for our content.
+                      </p>
+                      <div class="projects__buttonwrap">
+                        <button
+                          aria-expanded="false"
+                          aria-controls="gameblog-details"
+                          class="ctabutton projects__button"
+                          id="gameblog"
+                        >
+                          Read more
+                        </button>
+                        <a
+                          href="https://dreamy-shaw-314388.netlify.app/index.html"
+                          class="projects__link ctabutton"
+                          target="_blank"
+                        >
+                          View site
+                        </a>
+                        <a href="https://github.com/Hawkas/project-exam-1" class="projects__link ctabutton" target="_blank">
+                          View Github
+                        </a>
+                      </div>
+                    </div>
+                  </header>
+                  <div class="projects__expanded" id="gameblog-details">
+                    <section class="projects__main">
+                      <h4 class="projects__title smallcaps--all">Making the site</h4>
+                      <p class="content__bodytext">
+                        With the experience I had from the previous two websites, designing this one was a lot more intuitive and
+                        simple in comparison. The usual indecisiveness wasn’t nearly as present, as I was more confident in my
+                        choices.
+                      </p>
+                      <p class="content__bodytext">
+                        Afterwards I built the site using HTML/CSS and fetched the blog posts I had on an external WordPress site
+                        through the REST API. I also conducted user-tests during and after development, and made several changes
+                        to my design based on their feedback.
+                      </p>
+                      <p class="content__bodytext">
+                        This time around my workflow was a lot smoother than before, thanks to my experience from the previous
+                        projects. I also discovered many areas I could improve upon for future projects; mostly in terms of image
+                        optimization and JavaScript. But it’s a start, and I’m confident I’ll improve on these things as I learn
+                        and grow further.
+                      </p>
+                      <p class="content__bodytext">
+                        In the future I hope to revisit this project to add a search functionality, expand each post with a
+                        comment section hooked up to the REST API, and make the contact form send messages directly to my email.
+                      </p>
+                    </section>
+                    <aside class="projects__gallery">
+                      <h4 class="projects__title smallcaps--all">Images from development</h4>
+                      <ul class="projects__imagelist">
+                        <li>
+                          <figure class="projects__figure">
+                            <img src="" alt="" />
+                            <figcaption>Medium-fidelity prototype</figcaption>
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="projects__figure">
+                            <img src="" alt="" />
+                            <figcaption>Color choices</figcaption>
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="projects__figure">
+                            <img src="" alt="" />
+                            <figcaption>List of font-sizes for CSS</figcaption>
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="projects__figure">
+                            <img src="" alt="" />
+                            <figcaption>High-fidelity prototype</figcaption>
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="projects__figure">
+                            <img src="" alt="" />
+                            <figcaption>PageSpeed for mobile</figcaption>
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="projects__figure">
+                            <img src="" alt="" />
+                            <figcaption>PageSpeed for desktop</figcaption>
+                          </figure>
+                        </li>
+                      </ul>
+                    </aside>
                   </div>
-                  <div class="about__info-contact">
-                    <h3 class="content__title smallcaps--all">Contact</h3>
-                    <ul class="about__list">
-                      <li>
-                        <a href="mailto:torbjornhaukas@gmail.com" class="about__link about__link--email">
-                          <img src="./media/mail_icon.svg" alt="Mail Icon" width="68" height="66" />
-                          <span class="smallcaps--all">Email</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="" class="about__link about__link--github">
-                          <img src="./media/github_icon.svg" alt="Github Icon" width="68" height="66" />
-                          <span class="smallcaps--all">Github</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="" class="about__link about__link--linkedin">
-                          <img src="./media/linkedin_icon.svg" alt="LinkedIn Icon" width="68" height="66" />
-                          <span class="smallcaps--all">LinkedIn</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </aside>
-                <aside class="content__item about__ideals">
-                  <h3 class="content__title smallcaps--all">I always strive to make&nbsp;my&nbsp;sites..</h3>
-                  <ul class="about__hexalist">
-                    <li class="about__hexawrap">
-                      <div class="about__hexasize">
-                        <div class="about__hexagon">
-                          <img src="./media/speed_white_48dp.svg" height="48" width="48" alt="Speedometer Icon" />
-                        </div>
-                      </div>
-                      <h4 class="about__hexa-label smallcaps--all">Optimized</h4>
-                      <p>Ensuring fast load times and no lag are always one of my main goals in any&nbsp;project.</p>
-                    </li>
-                    <li class="about__hexawrap">
-                      <div class="about__hexasize">
-                        <div class="about__hexagon">
-                          <img src="./media/devices_other_white_48dp.svg" height="48" width="48" alt="Devices icon" />
-                        </div>
-                      </div>
-                      <h4 class="about__hexa-label smallcaps--all">Responsive</h4>
-                      <p>A website should work smoothly on any device, whether it’s a 4k monitor or a&nbsp;smartphone.</p>
-                    </li>
-                    <li class="about__hexawrap">
-                      <div class="about__hexasize">
-                        <div class="about__hexagon">
-                          <img src="./media/accessibility_new_white_48dp.svg" height="48" width="48" alt="Accessibility icon" />
-                        </div>
-                      </div>
-                      <h4 class="about__hexa-label smallcaps--all">Accessible</h4>
-                      <p>Everyone benefits when a website is built to be used by as many people as possible.</p>
-                    </li>
-                    <li class="about__hexawrap">
-                      <div class="about__hexasize">
-                        <div class="about__hexagon">
-                          <img src="./media/dynamic_feed_white_48dp.svg" height="48" width="48" alt="Dynamic feed icon" />
-                        </div>
-                      </div>
-                      <h4 class="about__hexa-label smallcaps--all">Dynamic</h4>
-                      <p>A website isn’t just a mere text document, it can and should be so much more.</p>
-                    </li>
-                  </ul>
-                </aside>
+                </article>
               </div>
             </div>
           </article>

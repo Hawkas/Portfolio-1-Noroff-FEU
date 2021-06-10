@@ -6,6 +6,7 @@ html {
 }
 body {
   width: 100%;
+  min-width: 320px;
   overflow-x: hidden;
 }
 *,
@@ -139,9 +140,13 @@ p {
   margin-bottom: var(--internalpadding);
 }
 
-.about__list p {
+.about__list p,
+.projects__tags {
   font-size: var(--infotext);
   font-weight: 300;
+}
+.projects__tags {
+  color: var(--white);
 }
 .about__link > span {
   font-family: var(--narrowfam);
@@ -164,6 +169,11 @@ p {
   font-size: var(--infotitle);
   font-weight: 500;
   color: var(--text-emphasis);
+}
+.projects__title {
+  font-size: var(--smalltitle);
+  font-weight: 600;
+  margin-bottom: var(--internalpadding);
 }
 .smallcaps {
   font-variant-caps: small-caps;
@@ -304,19 +314,33 @@ button {
   background-color: transparent;
 }
 .ctabutton {
-  display: flex;
-  align-items: flex-start;
-  padding: 20px 25px;
+  display: block;
+  padding: 15px 20px;
   border-radius: 25px;
   border: 3px solid transparent;
   background-color: var(--buttoncolor);
   color: var(--white);
   font-weight: 400;
+  text-transform: uppercase;
   line-height: 100%;
   letter-spacing: 0.05em;
   font-family: var(--edgyfam);
-  text-transform: uppercase;
   font-size: var(--bodybutton);
+}
+.projects__link.ctabutton {
+  background-color: transparent;
+  font-weight: 600;
+  border-color: #10627a;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-emphasis);
+  border-radius: 10px;
+}
+.ctabutton:hover {
+  background-color: rgba(0, 52, 72, 0.9);
+}
+.ctabutton:focus {
+  border: 3px solid var(--lightblue);
 }
 
 /*! Navigation */
@@ -563,12 +587,7 @@ main {
 .header__text {
   max-width: 453px;
 }
-.header__button:hover {
-  background-color: rgba(0, 52, 72, 0.9);
-}
-.header__button:focus {
-  border: 3px solid var(--lightblue);
-}
+
 @media only screen and (min-width: 768px) {
   main {
     margin-top: 230px;
@@ -602,6 +621,9 @@ main {
   border-radius: 25px;
   transition: border-radius 0.1s linear 0.2s, border-color 0.1s ease-in-out, background-color 0.25s ease-in-out;
 }
+.no-js .sectiongrid__title button {
+  border-radius: 25px 25px 0 0;
+}
 .sectiongrid__title button::after,
 .sectiongrid__title button::before {
   content: "";
@@ -622,7 +644,6 @@ main {
 }
 .sectiongrid__title button:hover,
 .sectiongrid__title button:focus {
-  /* background-color: rgba(22, 112, 148, 0.9); */
   border: 5px solid var(--white);
 }
 button.expanded::before {
@@ -851,6 +872,109 @@ button.expanded::before {
     }
     .about__hexasize {
       width: 66.7372330548%;
+    }
+  }
+}
+
+/** Projects **/
+
+.content--projects,
+.projects__item,
+.projects__textblock {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.projects__header {
+  height: min-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto min-content;
+  row-gap: var(--siblingpadding);
+  column-gap: var(--internalpadding);
+}
+.projects__textblock {
+  align-self: start;
+  height: min-content;
+}
+.projects__primary-img {
+  width: 100%;
+  height: 100%;
+  align-self: stretch;
+  overflow: hidden;
+}
+.projects__primary-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.projects__tags {
+  display: flex;
+  margin-bottom: var(--tinypadding);
+}
+.projects__tags span {
+  margin-right: 6px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  background-color: var(--text-emphasis);
+}
+.projects__buttonwrap {
+  display: flex;
+  flex-flow: wrap;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: var(--tinypadding);
+  margin: -5px;
+}
+.projects__buttonwrap > * {
+  margin: 5px;
+  margin-bottom: var(--internalpadding);
+}
+.projects__button {
+  margin-bottom: 5px;
+  margin-top: 0;
+  order: 1;
+}
+.projects__expanded {
+  position: relative;
+  padding: var(--parentpadding) 0;
+  width: 100%;
+  z-index: 1;
+}
+.projects__expanded::after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  left: calc(var(--containerpadding) * -1);
+  right: calc(var(--containerpadding) * -1);
+  bottom: 0;
+  background-color: var(--shadewhite);
+  box-shadow: var(--inner-shadow);
+}
+@media only screen and (min-width: 509px) {
+  .projects__button {
+    margin-right: auto;
+    order: 0;
+  }
+  @media only screen and (min-width: 840px) {
+    .projects__header {
+      grid-template-columns: 53.083% 1fr;
+    }
+    .projects__button {
+      order: 1;
+    }
+    @media only screen and (min-width: 1280px) {
+      .projects__buttonwrap > * {
+        margin-bottom: 5px;
+      }
+      .projects__button {
+        margin-top: 5px;
+        order: 0;
+      }
     }
   }
 }
