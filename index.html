@@ -7,7 +7,7 @@
     <title>Torbjørn Haukås</title>
     <meta
       name="description"
-      content="I'm Torbjørn, a front-end development student from Norway. On this page you'll find anything you'd need to know about my work, and if you need more, feel free to reach out"
+      content="I'm Torbjørn, a front-end development student from Norway. This is my portfolio where you'll find anything you'd need to know about my work."
     />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
@@ -21,6 +21,13 @@
   </head>
   <body class="no-js">
     <div class="page-container">
+      <div class="modal">
+        <figure class="modal__inner">
+          <button class="modal__close">&#x2715;</button>
+          <img class="modal__image" />
+          <figcaption class="modal__caption"></figcaption>
+        </figure>
+      </div>
       <div class="cloud__bg">
         <div class="cloud__container"></div>
       </div>
@@ -29,7 +36,7 @@
       <header class="header header--nav">
         <nav class="navblock">
           <div class="navblock__upperwrap">
-            <a class="navblock__logowrap" href="./" tabindex="-1">
+            <div class="navblock__logowrap">
               <img
                 class="navblock__logo"
                 src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzQgODMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Im03My4zMzQgNTkuNTM2di0zNi4wNzJjMC0xLjkzOTMtMS4wMzQ2LTMuNzMxMy0yLjcxNDEtNC43MDA5bC0xMy4xMjEtNy43NjMyLTEuNTYgMS41Ny0yOS40NDMgMzAuOTQ0di0xNi45NTJoOC4xMjA3di00Ljg0OTVoLTIxLjI5MXY0Ljg0OTVoOC4xMjA4djI0LjcyOWwzNi4zODYtMzcuNjIgMTAuNDAxIDYuMDQyN2MxLjY3OTUgMC45Njk3IDIuNzE0MSAyLjc2MTcgMi43MTQxIDQuNzAxdjMzLjYyOWMwIDEuOTM5My0xLjAzNDYgMy43MzEzLTIuNzE0MSA0LjcwMDlsLTI5LjEyNCAxNi44MTVjLTEuNjc5NSAwLjk2OTYtMy43NDg3IDAuOTY5Ni01LjQyODIgMGwtMjQuNDIzLTE0LjA5OS0xLjU3ODQgMS42MjcgMjYuMjcyIDE1LjE4NmMxLjY3OTUgMC45Njk3IDMuNzQ4NyAwLjk2OTcgNS40MjgyIDFlLTRsMzEuMjM5LTE4LjAzNmMxLjY3OTUtMC45Njk2IDIuNzE0MS0yLjc2MTYgMi43MTQxLTQuNzAwOXoiIGZpbGw9IiNGRkY5RkIiLz4KPHBhdGggZD0ibTAgNTkuNTM2di0zNi4wNzJjMC0xLjkzOTMgMS4wMzQ2LTMuNzMxMyAyLjcxNDEtNC43MDA5bDMxLjIzOS0xOC4wMzZjMS42Nzk1LTAuOTY5NjUgMy43NDg3LTAuOTY5NjUgNS40MjgyIDFlLTZsMTguMTE4IDEwLjI3My0xLjU1NDYgMS41NzU0LTE2LjgzNC05LjY3NjljLTEuNjc5NS0wLjk2OTY1LTMuNzQ4Ny0wLjk2OTY1LTUuNDI4MiAwbC0yOS4xMjQgMTYuODE1Yy0xLjY3OTUgMC45Njk3LTIuNzE0MSAyLjc2MTYtMi43MTQxIDQuNzAwOXYzMy42MjljMCAxLjkzOTMgMS4wMzQ2IDMuNzMxMyAyLjcxNDEgNC43MDFsNi40MzYyIDMuNzIyMy0xLjQ5NTggMS42ODM1LTYuNzg0OS0zLjkxMzFjLTEuNjc5NS0wLjk2OTYtMi43MTQxLTIuNzYxNi0yLjcxNDEtNC43MDA5eiIgZmlsbD0iIzAwMzQ0OCIvPgo8cGF0aCBkPSJtNTQuNDE3IDQzLjE0MmgtMTIuNDkydi0xMi4xMjRsLTMyLjY2NiAzNC40NDIgMS43Mzk3IDEuMDEgMjUuOTk2LTI2LjgxMnYyMS4xMzdoNS4wNDkxdi0xMi44MDRoMTIuMzczdjEyLjgwNGg1LjA0OTJ2LTI5Ljc3OGgtNS4wNDkydjEyLjEyNHoiIGZpbGw9IiMwMDM0NDgiLz4KPC9zdmc+"
@@ -37,7 +44,7 @@
                 height="83"
                 width="73.33"
               />
-            </a>
+            </div>
             <div class="navblock__barwrap">
               <button class="navblock__bars" aria-expanded="false" aria-controls="menu-items" aria-label="Navigation Menu">
                 <span class="bar1"></span>
@@ -227,14 +234,6 @@
                         developing a blogsite using WordPress as a headless CMS for our content.
                       </p>
                       <div class="projects__buttonwrap">
-                        <button
-                          aria-expanded="false"
-                          aria-controls="gameblog-details"
-                          class="ctabutton projects__button"
-                          id="gameblog"
-                        >
-                          Read more
-                        </button>
                         <a
                           href="https://dreamy-shaw-314388.netlify.app/index.html"
                           class="projects__link ctabutton"
@@ -251,74 +250,136 @@
                         >
                           View Github
                         </a>
+                        <button
+                          aria-expanded="false"
+                          aria-controls="gameblog-details"
+                          class="ctabutton projects__button"
+                          id="gameblog"
+                        >
+                          Read more
+                          <svg fill="none" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
+                            <path d="M5.522 7l4.956 4.945L15.433 7l1.523 1.522L10.478 15 4 8.522 5.522 7z" fill="#fff" />
+                          </svg>
+                        </button>
                       </div>
                     </div>
                   </header>
-                  <div class="projects__expanded" id="gameblog-details">
-                    <section class="projects__main">
-                      <h4 class="projects__title smallcaps--all">Making the site</h4>
-                      <p class="content__bodytext">
-                        With the experience I had from the previous two websites, designing this one was a lot more intuitive and
-                        simple in comparison. The usual indecisiveness wasn’t nearly as present, as I was more confident in my
-                        choices.
-                      </p>
-                      <p class="content__bodytext">
-                        Afterwards I built the site using HTML/CSS and fetched the blog posts I had on an external WordPress site
-                        through the REST API. I also conducted user-tests during and after development, and made several changes
-                        to my design based on their feedback.
-                      </p>
-                      <p class="content__bodytext">
-                        This time around my workflow was a lot smoother than before, thanks to my experience from the previous
-                        projects. I also discovered many areas I could improve upon for future projects; mostly in terms of image
-                        optimization and JavaScript. But it’s a start, and I’m confident I’ll improve on these things as I learn
-                        and grow further.
-                      </p>
-                      <p class="content__bodytext">
-                        In the future I hope to revisit this project to add a search functionality, expand each post with a
-                        comment section hooked up to the REST API, and make the contact form send messages directly to my email.
-                      </p>
-                    </section>
-                    <aside class="projects__gallery">
-                      <h4 class="projects__title smallcaps--all">Images from development</h4>
-                      <ul class="projects__imagelist">
-                        <li>
-                          <figure class="projects__figure">
-                            <img src="" alt="" />
-                            <figcaption>Medium-fidelity prototype</figcaption>
-                          </figure>
-                        </li>
-                        <li>
-                          <figure class="projects__figure">
-                            <img src="" alt="" />
-                            <figcaption>Color choices</figcaption>
-                          </figure>
-                        </li>
-                        <li>
-                          <figure class="projects__figure">
-                            <img src="" alt="" />
-                            <figcaption>List of font-sizes for CSS</figcaption>
-                          </figure>
-                        </li>
-                        <li>
-                          <figure class="projects__figure">
-                            <img src="" alt="" />
-                            <figcaption>High-fidelity prototype</figcaption>
-                          </figure>
-                        </li>
-                        <li>
-                          <figure class="projects__figure">
-                            <img src="" alt="" />
-                            <figcaption>PageSpeed for mobile</figcaption>
-                          </figure>
-                        </li>
-                        <li>
-                          <figure class="projects__figure">
-                            <img src="" alt="" />
-                            <figcaption>PageSpeed for desktop</figcaption>
-                          </figure>
-                        </li>
-                      </ul>
-                    </aside>
+                  <div class="projects__details" id="gameblog-details">
+                    <div class="projects__expanded">
+                      <section class="projects__main">
+                        <h4 class="projects__title smallcaps--all">Making the site</h4>
+                        <p class="content__bodytext">
+                          With the experience I had from the previous two websites, designing this one was a lot more intuitive
+                          and simple in comparison. The usual indecisiveness wasn’t nearly as present, as I was more confident in
+                          my choices.
+                        </p>
+                        <p class="content__bodytext">
+                          Afterwards I built the site using HTML/CSS and fetched the blog posts I had on an external WordPress
+                          site through the REST API. I also conducted user-tests during and after development, and made several
+                          changes to my design based on their feedback.
+                        </p>
+                        <p class="content__bodytext">
+                          This time around my workflow was a lot smoother than before, thanks to my experience from the previous
+                          projects. I also discovered many areas I could improve upon for future projects; mostly in terms of
+                          image optimization and JavaScript. But it’s a start, and I’m confident I’ll improve on these things as I
+                          learn and grow further.
+                        </p>
+                        <p class="content__bodytext">
+                          In the future I hope to revisit this project to add a search functionality, expand each post with a
+                          comment section hooked up to the REST API, and make the contact form send messages directly to my email.
+                        </p>
+                      </section>
+                      <aside class="projects__gallery">
+                        <h4 class="projects__title smallcaps--all">Images from development</h4>
+                        <p>Click image for full size</p>
+                        <ul class="projects__imagelist">
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  src="./media/projects/gameblog-medfiproto-1066w.jpg"
+                                  alt="GameBlog medium-fidelity prototype"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/gameblog-medfiproto-1440w.jpg"
+                                />
+                              </button>
+                              <figcaption>Medium-fidelity prototype</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  src="./media/projects/gameblog-colors-1066w.jpg"
+                                  alt="Color choices from designing GameBlog"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/gameblog-colors-1440w.jpg"
+                                />
+                              </button>
+                              <figcaption>Color choices</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  src="./media/projects/gameblog-fonts-1066w.jpg"
+                                  alt="Font-sizes used for GameBlog"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/gameblog-fonts-1440w.jpg"
+                                />
+                              </button>
+                              <figcaption>List of font-sizes for CSS</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  src="./media/projects/gameblog-hifiproto-1066w.jpg"
+                                  alt="High-fidelity prototype of GameBlog"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/gameblog-hifiproto-1440w.jpg"
+                                />
+                              </button>
+                              <figcaption>High-fidelity prototype</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  src="./media/projects/gameblog-speedmobile-1066w.jpg"
+                                  alt="GameBlog's PageSpeed for mobile"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/gameblog-speedmobile-1440w.jpg"
+                                />
+                              </button>
+                              <figcaption>PageSpeed for mobile</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  src="./media/projects/gameblog-speeddesktop-1066w.jpg"
+                                  alt="GameBlog's PageSpeed for desktop"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/gameblog-speeddesktop-1440w.jpg"
+                                />
+                              </button>
+                              <figcaption>PageSpeed for desktop</figcaption>
+                            </figure>
+                          </li>
+                        </ul>
+                      </aside>
+                    </div>
                   </div>
                 </article>
               </div>
