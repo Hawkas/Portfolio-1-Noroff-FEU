@@ -56,13 +56,13 @@
           <div id="menu-items" class="navblock__lower navblock__lower--hide">
             <ul class="navblock__listblock">
               <li>
-                <a href="#about-header" class="navblock__item">About</a>
+                <a href="#about-title" class="navblock__item">About</a>
               </li>
               <li>
-                <a href="#projects-header" class="navblock__item">Portfolio</a>
+                <a href="#projects-title" class="navblock__item">Portfolio</a>
               </li>
               <li>
-                <a href="#blog-header" class="navblock__item">Blog</a>
+                <a href="#blog-title" class="navblock__item">Blog</a>
               </li>
             </ul>
           </div>
@@ -74,12 +74,12 @@
           <p class="header__text">
             Welcome to my portfolio page where I showcase the projects I made while learning front-end development the past year.
           </p>
-          <a href="#projects-header" class="header__button ctabutton">View my work</a>
+          <a href="#projects-title" class="header__button ctabutton">View my work</a>
         </header>
         <div class="sectiongrid pagewidth">
-          <article class="sectiongrid__section sectiongrid__section--about" aria-labelledby="about-header">
+          <article class="sectiongrid__section sectiongrid__section--about" aria-labelledby="about-title">
             <h2 class="sectiongrid__title">
-              <button id="about-header" aria-controls="about-content" aria-expanded="false">About Me</button>
+              <button id="about-title" aria-controls="about-content" aria-expanded="false">About Me</button>
             </h2>
             <div id="about-content" class="content__wrap">
               <div class="content content--about">
@@ -229,15 +229,15 @@
               </div>
             </div>
           </article>
-          <article class="sectiongrid__section sectiongrid__section--projects" aria-labelledby="projects-header">
+          <article class="sectiongrid__section sectiongrid__section--projects" aria-labelledby="projects-title">
             <h2 class="sectiongrid__title">
-              <button id="projects-header" aria-controls="projects-content" aria-expanded="false">My Projects</button>
+              <button id="projects-title" aria-controls="projects-content" aria-expanded="false">My Projects</button>
             </h2>
             <div id="projects-content" class="content__wrap">
               <div class="content content--projects">
                 <article aria-labelledby="gameblog-header" class="projects__item">
                   <header class="projects__header">
-                    <picture class="content__imagewrap projects__primary-img">
+                    <picture class="content__imagewrap projects__primary-img gameblog--header">
                       <source media="(max-width: 509px)" srcset="./media/gameblog-921w1.jpg" />
                       <source media="(min-width: 509px)" srcset="./media/gameblog-1580w.jpg" />
                       <img
@@ -328,6 +328,8 @@
                                   width="533"
                                   height="340"
                                   data-modal="./media/modal/gameblog-medfiproto-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="1680"
                                 />
                               </button>
                               <figcaption>Medium-fidelity prototype</figcaption>
@@ -343,6 +345,8 @@
                                   width="533"
                                   height="340"
                                   data-modal="./media/modal/gameblog-colors-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="810"
                                 />
                               </button>
                               <figcaption>Color choices</figcaption>
@@ -358,6 +362,8 @@
                                   width="533"
                                   height="340"
                                   data-modal="./media/modal/gameblog-fonts-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="811"
                                 />
                               </button>
                               <figcaption>List of font-sizes for CSS</figcaption>
@@ -373,6 +379,8 @@
                                   width="533"
                                   height="340"
                                   data-modal="./media/modal/gameblog-hifiproto-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="1680"
                                 />
                               </button>
                               <figcaption>High-fidelity prototype</figcaption>
@@ -388,6 +396,8 @@
                                   width="533"
                                   height="340"
                                   data-modal="./media/modal/gameblog-speedmobile-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="810"
                                 />
                               </button>
                               <figcaption>PageSpeed for mobile</figcaption>
@@ -403,6 +413,362 @@
                                   width="533"
                                   height="340"
                                   data-modal="./media/modal/gameblog-speeddesktop-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="809"
+                                />
+                              </button>
+                              <figcaption>PageSpeed for desktop</figcaption>
+                            </figure>
+                          </li>
+                        </ul>
+                      </aside>
+                    </div>
+                  </div>
+                </article>
+                <article aria-labelledby="museum-header" class="projects__item">
+                  <header class="projects__header">
+                    <picture class="content__imagewrap projects__primary-img">
+                      <source media="(max-width: 509px)" srcset="./media/museum-921w.jpg" />
+                      <source media="(min-width: 509px)" srcset="./media/museum-1580w.jpg" />
+                      <img
+                        loading="lazy"
+                        src="./media/museum-1580w.jpg"
+                        width="637"
+                        height="384"
+                        alt="Screenshot of Community Science Museum"
+                      />
+                    </picture>
+                    <div class="projects__textblock">
+                      <h3 id="museum-header" class="content__title smallcaps">Science Museum</h3>
+                      <div class="projects__tags">
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                      </div>
+                      <p class="content__bodytext projects__introtext">
+                        This is my second project. This was a semester project where we were given a brief of a science museum and
+                        tasked to design and build a website specifically catered to the target audience.
+                      </p>
+                      <div class="projects__buttonwrap">
+                        <a
+                          href="https://ecstatic-beaver-12547e.netlify.app/index.html"
+                          class="projects__link ctabutton"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View site
+                        </a>
+                        <a
+                          href="https://github.com/Hawkas/Noroff-FEU-SP-Torbjorn-2020"
+                          class="projects__link ctabutton"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Github
+                        </a>
+                        <button
+                          aria-expanded="false"
+                          aria-controls="museum-details"
+                          class="ctabutton projects__button"
+                          id="museum"
+                        >
+                          Read more
+                          <svg fill="none" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
+                            <path d="M5.522 7l4.956 4.945L15.433 7l1.523 1.522L10.478 15 4 8.522 5.522 7z" fill="#fff" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </header>
+                  <div class="projects__details" id="museum-details">
+                    <div class="projects__expanded">
+                      <section class="projects__main">
+                        <h4 class="projects__title smallcaps--all">Making the site</h4>
+                        <p class="content__bodytext">
+                          I was a lot more thorough in the groundwork here than on the previous project, as I now had a better
+                          idea of what I’d need and could prepare for it more elaborately.
+                        </p>
+                        <p class="content__bodytext">
+                          I considered the psychological effects of my color palette and whether or not my typeface fit the theme
+                          of the website. I also went to great lengths to fine-tune my text for good readability, and was very
+                          particular in my choice of images.
+                        </p>
+                        <p class="content__bodytext">
+                          In my code, I made sure that all of my components were modular so they could be re-used across the site.
+                          I used a proper naming convention to make my code intuitive and clean, and did my utmost to optimize
+                          performance.
+                        </p>
+                        <p class="content__bodytext">
+                          I put my ‘finished’ web-page in the hands of as many people as I could find, and based on their feedback
+                          I made several changes. In doing so, I experienced how important user-testing is, and I made a note to
+                          myself to do so earlier in the future.
+                        </p>
+                        <p class="content__bodytext">
+                          Overall, this project was magnitudes above my first on every facet. But I could still see much room for
+                          improvement. As this is a static HTML/CSS website it would benefit greatly from some dynamic
+                          interactions with JavaScript, and there’s a certain jankiness to the site as a whole that I’d want to
+                          clear up. Nonetheless, I’m proud with how my second website turned out in the end.
+                        </p>
+                      </section>
+                      <aside class="projects__gallery">
+                        <h4 class="projects__title smallcaps--all">Images from development</h4>
+                        <p>Click image for full size</p>
+                        <ul class="projects__imagelist">
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/museum-medfiproto-1066w.jpg"
+                                  alt="Community Science Museum medium-fidelity prototype"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/museum-medfiproto-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="1234"
+                                />
+                              </button>
+                              <figcaption>Medium-fidelity prototype</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/museum-colors-1066w.jpg"
+                                  alt="Color choices from designing Community Science Museum"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/museum-colors-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="810"
+                                />
+                              </button>
+                              <figcaption>Color choices</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/museum-fonts-1066w.jpg"
+                                  alt="Font-sizes used for Community Science Museum"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/museum-fonts-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="810"
+                                />
+                              </button>
+                              <figcaption>List of font-sizes for CSS</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/museum-hifiproto-1066w.jpg"
+                                  alt="High-fidelity prototype of Community Science Museum"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/museum-hifiproto-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="1680"
+                                />
+                              </button>
+                              <figcaption>High-fidelity prototype</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/museum-speedmobile-1066w.jpg"
+                                  alt="Community Science Museum's PageSpeed for mobile"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/museum-speedmobile-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="810"
+                                />
+                              </button>
+                              <figcaption>PageSpeed for mobile</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/museum-speeddesktop-1066w.jpg"
+                                  alt="Community Science Museum's PageSpeed for desktop"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/museum-speeddesktop-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="810"
+                                />
+                              </button>
+                              <figcaption>PageSpeed for desktop</figcaption>
+                            </figure>
+                          </li>
+                        </ul>
+                      </aside>
+                    </div>
+                  </div>
+                </article>
+                <article aria-labelledby="squareeyes-header" class="projects__item">
+                  <header class="projects__header">
+                    <picture class="content__imagewrap projects__primary-img">
+                      <source media="(max-width: 509px)" srcset="./media/squareeyes-921w.jpg" />
+                      <source media="(min-width: 509px)" srcset="./media/squareeyes-1580w.jpg" />
+                      <img
+                        loading="lazy"
+                        src="./media/squareeyes-1580w.jpg"
+                        width="637"
+                        height="384"
+                        alt="Screenshot of SquareEyes"
+                      />
+                    </picture>
+                    <div class="projects__textblock">
+                      <h3 id="squareeyes-header" class="content__title smallcaps">SquareEyes</h3>
+                      <div class="projects__tags">
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                      </div>
+                      <p class="content__bodytext projects__introtext">
+                        My first website ever. We were given a choice of briefs which we would design and build a website for, and
+                        I chose SquareEyes; an indie-film streaming service.
+                      </p>
+                      <div class="projects__buttonwrap">
+                        <a
+                          href="https://upbeat-aryabhata-0565da.netlify.app/index.html"
+                          class="projects__link ctabutton"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View site
+                        </a>
+                        <a
+                          href="https://github.com/Hawkas/CA3Torbjorn"
+                          class="projects__link ctabutton"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Github
+                        </a>
+                        <button
+                          aria-expanded="false"
+                          aria-controls="squareeyes-details"
+                          class="ctabutton projects__button"
+                          id="squareeyes"
+                        >
+                          Read more
+                          <svg fill="none" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
+                            <path d="M5.522 7l4.956 4.945L15.433 7l1.523 1.522L10.478 15 4 8.522 5.522 7z" fill="#fff" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </header>
+                  <div class="projects__details" id="squareeyes-details">
+                    <div class="projects__expanded">
+                      <section class="projects__main">
+                        <h4 class="projects__title smallcaps--all">Making the site</h4>
+                        <p class="content__bodytext">
+                          This site was something we’d worked on throughout two courses. Designing the prototype was our final
+                          assignment for the design course, and developing it was our final assignment in the HTML/CSS course.
+                        </p>
+                        <p class="content__bodytext">
+                          As we designed the page before we learned any HTML/CSS, I hadn’t designed it with development in mind.
+                          So there were certain parts I ended up improvising, which made my code rather dirty and rough.
+                        </p>
+                        <p class="content__bodytext">
+                          But towards the end of the week spent making this website, I had discovered so many useful tricks and
+                          methods. I tried incorporating some of these methods into my code at the time, but could only do so much
+                          before the deadline.
+                        </p>
+                        <p class="content__bodytext">
+                          In short, there were just a lot of growing pains all around, but it was still really enjoyable to make.
+                          The puzzle-solving of getting things the way you want them to be with CSS was almost addictive, so
+                          despite it not ending up the way I’d hoped, this project still has a special place in my heart due to
+                          all the things I learned while working on it.
+                        </p>
+                        <p class="content__bodytext">
+                          I aim to revisit it some time in the coming months to clean up the messy code and add some additional
+                          functionality.
+                        </p>
+                      </section>
+                      <aside class="projects__gallery">
+                        <h4 class="projects__title smallcaps--all">Images from development</h4>
+                        <p>Click image for full size</p>
+                        <ul class="projects__imagelist">
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/squareeyes-styletile-1066w.jpg"
+                                  alt="Style tile from designing SquareEyes"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/squareeyes-styletile-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="810"
+                                />
+                              </button>
+                              <figcaption>Style tile</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/squareeyes-hifiproto-1066w.jpg"
+                                  alt="High-fidelity prototype of SquareEyes"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/squareeyes-hifiproto-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="1680"
+                                />
+                              </button>
+                              <figcaption>High-fidelity prototype</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/squareeyes-speedmobile-1066w.jpg"
+                                  alt="SquareEyes PageSpeed for mobile"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/squareeyes-speedmobile-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="810"
+                                />
+                              </button>
+                              <figcaption>PageSpeed for mobile</figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            <figure class="projects__figure">
+                              <button aria-label="View full image" class="projects__imagewrap">
+                                <img
+                                  loading="lazy"
+                                  src="./media/projects/squareeyes-speeddesktop-1066w.jpg"
+                                  alt="SquareEyes PageSpeed for desktop"
+                                  width="533"
+                                  height="340"
+                                  data-modal="./media/modal/squareeyes-speeddesktop-1440w.jpg"
+                                  data-width="1440"
+                                  data-height="810"
                                 />
                               </button>
                               <figcaption>PageSpeed for desktop</figcaption>
@@ -416,9 +782,9 @@
               </div>
             </div>
           </article>
-          <article class="sectiongrid__section sectiongrid__section--blog" aria-labelledby="blog-header">
+          <article class="sectiongrid__section sectiongrid__section--blog" aria-labelledby="blog-title">
             <h2 class="sectiongrid__title">
-              <button id="blog-header" aria-controls="blog-content" aria-expanded="false">Blog</button>
+              <button id="blog-title" aria-controls="blog-content" aria-expanded="false">Blog</button>
             </h2>
             <div id="blog-content" class="content__wrap">
               <div class="content content--about"></div>
@@ -426,6 +792,7 @@
           </article>
         </div>
       </main>
+      <footer><small>© 2021 Torbjørn Haukås</small></footer>
     </div>
     <script src="./js/script.js"></script>
   </body>

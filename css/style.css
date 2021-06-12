@@ -20,7 +20,7 @@ body {
 }
 /*! Variables */
 :root {
-  --edgyfam: "sofia-pro", sans-serif;
+  --edgyfam: "sofia-pro", "Segoe UI", Geneva, Arial, sans-serif;
   --narrowfam: "sofia-pro-condensed", "Arial Narrow", sans-serif;
 
   /* Effect styles */
@@ -39,7 +39,7 @@ body {
   --gray: rgba(85, 85, 85, 1);
 
   /* Paddings */
-  --heropadding: 100px;
+  --mainpadding: 100px;
   --borderpadding: 5px;
   --containerpadding: 10px;
   --parentpadding: 120px;
@@ -74,7 +74,7 @@ body {
     /* Padding */
     --borderpadding: 20px;
     --containerpadding: 20px;
-    --heropadding: 230px;
+    --mainpadding: 230px;
   }
 }
 @supports (font-size: clamp(1rem, 1vw * 2, 2rem)) {
@@ -92,7 +92,7 @@ body {
     /* Padding clamps */
     --borderpadding: clamp(5px, -5.7136px + 3.3482vw, 20px);
     --containerpadding: clamp(10px, 2.8576px + 2.2321vw, 20px);
-    --heropadding: clamp(100px, 7.0864px + 29.0357vw, 230px);
+    --mainpadding: clamp(100px, -142.6864px + 48.5373vw, 230px);
   }
   @media only screen and (min-width: 768px) {
     :root {
@@ -235,7 +235,15 @@ p {
   background-size: 1440px;
 }
 .hillbg__bottom {
-  display: none;
+  display: block;
+  position: absolute;
+  top: 1105px;
+  bottom: 0;
+  width: 100%;
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 1440px;
+  background-image: url("../media/hillbottom-mobile.svg");
 }
 
 @media only screen and (min-width: 768px) {
@@ -310,6 +318,11 @@ p {
   position: absolute;
   white-space: nowrap;
 }
+
+img {
+  aspect-ratio: attr(width) / attr(height);
+}
+
 button {
   background-color: transparent;
 }
@@ -360,6 +373,7 @@ button {
 .header--nav {
   position: relative;
 }
+
 .navblock {
   display: flex;
   align-items: center;
@@ -373,7 +387,7 @@ button {
   display: block;
   min-height: 50px;
   width: auto;
-  height: calc(0.5264rem + 7.3679vw);
+  height: calc(8.4224px + 7.3679vw);
   max-height: 83px;
 }
 .navblock__upperwrap,
@@ -587,7 +601,7 @@ button {
 /*! Hero header */
 main {
   position: relative;
-  margin-top: clamp(6.25rem, -8.9179rem + 48.5373vw, 14.38rem);
+  margin-top: var(--mainpadding);
 }
 .header--main {
   min-width: 320px;
@@ -596,6 +610,7 @@ main {
   align-items: flex-start;
   padding: 0 calc(var(--borderpadding) + var(--containerpadding));
   margin-bottom: 258px;
+  animation: shiftIn 1s ease both;
 }
 .header__title {
   position: relative;
@@ -604,19 +619,23 @@ main {
 .header__text {
   max-width: 453px;
 }
-
-@media only screen and (min-width: 768px) {
-  main {
-    margin-top: 230px;
+@keyframes shiftIn {
+  from {
+    opacity: 0;
+    transform: translateX(-400px);
   }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media only screen and (min-width: 768px) {
   .header--main {
     margin-bottom: 309px;
   }
   .header__text {
     max-width: 553px;
   }
-
-  /* Animating title */
 }
 
 /*! Outer framework styling */
@@ -625,18 +644,30 @@ main {
   row-gap: 20px;
   border-radius: 25px;
   background-color: var(--sectionborder);
+  animation: shiftUp 1.5s ease both;
+}
+@keyframes shiftUp {
+  from {
+    opacity: 0;
+    transform: translateY(400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .sectiongrid__title button {
   color: var(--white);
   position: relative;
-  text-align: left;
+  display: flex;
+  justify-content: flex-start;
   width: 100%;
   padding: var(--siblingpadding) var(--containerpadding);
   background-color: var(--darkblue);
-  border: 5px solid transparent;
+  border: 5px solid var(--darkblue);
   cursor: pointer;
   border-radius: 25px;
-  transition: border-radius 0.1s linear 0.2s, border-color 0.1s ease-in-out, background-color 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out, background-color 0.25s ease-in-out;
 }
 .no-js .sectiongrid__title button {
   border-radius: 25px 25px 0 0;
@@ -667,7 +698,6 @@ main {
   transform: rotate(90deg) scaleX(0);
 }
 .sectiongrid__title .expanded {
-  transition: border-radius 0.1s linear;
   border-radius: 25px 25px 0 0;
 }
 .content__wrap {
@@ -955,6 +985,10 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: left;
+}
+.gameblog--header img {
+  object-position: center;
 }
 .projects__tags {
   display: flex;
@@ -1094,7 +1128,7 @@ main {
     transform: scale(1);
   }
 }
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1605px) {
   .modal__image {
     cursor: -webkit-zoom-in;
     cursor: -moz-zoom-in;
@@ -1117,4 +1151,22 @@ main {
     @media only screen and (min-width: 1362px) {
     }
   }
+}
+
+/* Footer lol */
+
+footer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: flex-end;
+  padding: var(--parentpadding) 0 var(--siblingpadding);
+  margin: var(--parentpadding) auto 0;
+  animation: shiftUp 1.5s ease both;
+}
+footer small {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--black);
 }

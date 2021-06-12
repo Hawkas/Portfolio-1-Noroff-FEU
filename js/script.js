@@ -58,8 +58,8 @@
       element.removeEventListener("transitionend", arguments.callee);
       element.style.display = null;
       element.style.transition = null;
+      button.classList.remove("expanded");
     });
-    button.classList.remove("expanded");
     button.setAttribute("aria-expanded", "false");
   }
 
@@ -84,10 +84,18 @@
     if (e.target !== modalImage) {
       modalOpen = false;
       modal.style.display = null;
+      modalImage.width = null;
+      modalImage.height = null;
       modalImage.src = "";
       modalCaption.innerHTML = "";
       lastFocusedElement.focus();
     }
+  }
+  // Remove focus from buttons when clicked and not tabbed, just feels janky.
+  function blurOnClick(button) {
+    button.addEventListener("mousedown", function (e) {
+      e.preventDefault();
+    });
   }
   // Remove no-js class. Just so site is usable even without JS.
   document.body.classList.remove("no-js");
@@ -116,9 +124,10 @@
   // }
 
   for (let button of sectionButtons) {
-    let section = button.id.replace("-header", "");
+    let section = button.id.replace("-title", "");
     let sectionWrap = document.querySelector(`#${section}-content`);
     sectionWrap.style.height = "0px";
+    blurOnClick(button);
     button.addEventListener("click", function () {
       // Don't run if already running
       if (isRunning) return;
@@ -132,9 +141,6 @@
       setTimeout(function () {
         isRunning = false;
       }, 600);
-    });
-    button.addEventListener("mousedown", function (e) {
-      e.preventDefault();
     });
   }
   for (let navLink of navLinks) {
@@ -157,6 +163,7 @@
   for (let button of projectButtons) {
     let projectWrap = document.querySelector(`#${button.id}-details`);
     projectWrap.style.height = "0px";
+    blurOnClick(button);
     button.addEventListener("click", function () {
       if (isRunning) return;
       isRunning = true;
@@ -169,13 +176,9 @@
         this.classList.toggle("flipped");
         expandElement(project, this);
       }
-
       setTimeout(function () {
         isRunning = false;
-      }, 200);
-    });
-    button.addEventListener("mousedown", function (e) {
-      e.preventDefault();
+      }, 600);
     });
   }
 
@@ -185,19 +188,22 @@
     e.stopPropagation();
     modalImage.classList.toggle("zoomed");
   });
+
   for (let button of imageButtons) {
     let image = button.firstElementChild;
-    let caption = image.alt;
-    let imgUrl = image.dataset.modal;
     button.addEventListener("click", function () {
       lastFocusedElement = button;
       modalOpen = true;
       modal.style.display = "block";
-      modalImage.src = imgUrl;
-      modalCaption.innerHTML = caption;
+      modalImage.width = image.dataset.width;
+      modalImage.height = image.dataset.height;
+      modalImage.src = image.dataset.modal;
+      modalCaption.innerHTML = image.alt;
       modal.focus();
     });
   }
+
+  // To trap focus in modal and return to last location after
   document.addEventListener("keydown", function (e) {
     if (modalOpen) {
       if (e.key === "Tab" || e.code === "Tab") {
@@ -207,3 +213,13 @@
     }
   });
 }
+
+let cls = 0;
+new PerformanceObserver((entryList) => {
+  for (const entry of entryList.getEntries()) {
+    if (!entry.hadRecentInput) {
+      cls += entry.value;
+      console.log("Current CLS value:", cls, entry);
+    }
+  }
+}).observe({ type: "layout-shift", buffered: true });
