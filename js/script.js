@@ -1,6 +1,6 @@
 const menuBar = document.querySelector(".navblock__bars");
 const lowerBlock = document.querySelector(".navblock__lower");
-const navHeader = document.querySelector(".page-container > header");
+const navHeader = document.querySelector(".navblock");
 const navLinks = document.querySelectorAll(".navblock__item, .header__button");
 
 const sectionButtons = document.querySelectorAll(".sectiongrid__title button");
@@ -15,24 +15,37 @@ const modalImage = document.querySelector(".modal__image");
 let modalOpen = false;
 let lastFocusedElement = "";
 
-function noBubble(e) {
-  e.stopPropagation();
+function closeMenu() {
+  lowerBlock.classList.remove("navblock__lower--show");
+  lowerBlock.classList.add("navblock__lower--vanish");
+  setTimeout(function () {
+    menuBar.setAttribute("aria-expanded", "false");
+    lowerBlock.classList.remove("navblock__lower--vanish");
+    lowerBlock.classList.add("navblock__lower--hide");
+    navHeader.classList.remove("fill-screen");
+    document.body.classList.remove("fixed");
+  }, 400);
 }
-/* Open dropdown menu and animate bars */
 function openMenu() {
+  menuBar.setAttribute("aria-expanded", "true");
+  lowerBlock.classList.remove("navblock__lower--hide");
+  lowerBlock.classList.add("navblock__lower--show");
+  navHeader.classList.add("fill-screen");
+  document.body.classList.add("fixed");
+}
+
+function toggleMenu() {
+  if (isRunning) return;
+  isRunning = true;
   menuBar.classList.toggle("switch");
   if (lowerBlock.classList.contains("navblock__lower--show")) {
-    lowerBlock.classList.remove("navblock__lower--show");
-    lowerBlock.classList.add("navblock__lower--vanish");
-    setTimeout(function () {
-      lowerBlock.classList.remove("navblock__lower--vanish");
-      lowerBlock.classList.add("navblock__lower--hide");
-    }, 250);
+    closeMenu();
   } else {
-    lowerBlock.classList.remove("navblock__lower--hide");
-    lowerBlock.classList.add("navblock__lower--show");
+    openMenu();
   }
-  navHeader.classList.toggle("sticky");
+  setTimeout(function () {
+    isRunning = false;
+  }, 400);
 }
 
 // Collapsing animation for element of auto-adjusted height
@@ -115,10 +128,7 @@ lowerBlock.addEventListener("click", function (e) {
   }
 });
 
-menuBar.addEventListener("click", openMenu);
-// for (let anchor of anchorArray) {
-//   anchor.addEventListener("click", noBubble);
-// }
+menuBar.addEventListener("click", toggleMenu);
 
 for (let button of sectionButtons) {
   let section = button.id.replace("-title", "");
