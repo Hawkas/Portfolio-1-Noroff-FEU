@@ -6,7 +6,8 @@ const navLinks = document.querySelectorAll(".navblock__item, .header__button");
 
 //! Section vars
 const sectionButtons = document.querySelectorAll(".sectiongrid__title button");
-let isRunning = false;
+let sectionIsRunning = false;
+let navIsRunning = false;
 
 //* Projects vars
 const projectButtons = document.querySelectorAll(".projects__button");
@@ -20,7 +21,6 @@ let lastFocusedElement = "";
 
 //! Fetch vars
 const out = document.querySelector(".content--blog");
-// const cors = "https://noroffcors.herokuapp.com/";
 const url = "../blogposts/wp-json/wp/v2/posts?per_page=3&orderby=date&_embed";
 let apiFetched = false;
 
@@ -47,8 +47,8 @@ function openMenu() {
 }
 
 function toggleMenu() {
-  if (isRunning) return;
-  isRunning = true;
+  if (sectionIsRunning) return;
+  navIsRunning = true;
   menuBar.classList.toggle("switch");
   if (lowerBlock.classList.contains("navblock__lower--show")) {
     closeMenu();
@@ -56,7 +56,7 @@ function toggleMenu() {
     openMenu();
   }
   setTimeout(function () {
-    isRunning = false;
+    navIsRunning = false;
   }, 400);
 }
 
@@ -100,8 +100,8 @@ function expandElement(element, button) {
 }
 
 function toggleSections() {
-  if (isRunning) return;
-  isRunning = true;
+  if (sectionIsRunning) return;
+  sectionIsRunning = true;
   let section = this.id.replace("-title", "");
   const sectionElement = document.querySelector(`#${section}-content`);
   if (this.classList.contains("expanded")) {
@@ -111,13 +111,13 @@ function toggleSections() {
     expandElement(sectionElement, this);
   }
   setTimeout(function () {
-    isRunning = false;
+    sectionIsRunning = false;
   }, 600);
 }
 
 function toggleProjects() {
-  if (isRunning) return;
-  isRunning = true;
+  if (sectionIsRunning) return;
+  sectionIsRunning = true;
   let project = document.querySelector(`#${this.id}-details`);
   if (this.classList.contains("expanded")) {
     this.innerHTML = this.innerHTML.replace("Read less&nbsp;", "Read more");
@@ -128,7 +128,7 @@ function toggleProjects() {
     expandElement(project, this);
   }
   setTimeout(function () {
-    isRunning = false;
+    sectionIsRunning = false;
   }, 600);
 }
 function openModal() {
@@ -168,7 +168,7 @@ function checkCategories(categoriesList) {
       if (categories.name === "Featured") continue;
       return categories.id;
     }
-  } else return categoriesList.id;
+  } else return categoriesList[0].id;
 }
 function dateOrdinal(date) {
   date = parseInt(date);
@@ -210,7 +210,7 @@ function postBlog(postList) {
   for (let post of postList) {
     let category = checkCategories(post._embedded["wp:term"][0]);
     let date = dateHandler(post.date);
-    let link = "https://dreamy-shaw-314388.netlify.app/post.html/post.html?id=" + post.id + "&category=" + category;
+    let link = "https://dreamy-shaw-314388.netlify.app/post.html?id=" + post.id + "&category=" + category;
     let img = {
       path: post._embedded["wp:featuredmedia"][0],
       get url() {
@@ -265,7 +265,7 @@ document.body.classList.remove("no-js");
 // Hide menu when pressing on the opaque bg
 lowerBlock.addEventListener("click", function (e) {
   if (document.querySelector(".navblock__lower--show") && e.offsetY > lowerBlock.offsetHeight) {
-    openMenu();
+    toggleMenu();
   }
 });
 
@@ -279,19 +279,31 @@ for (let button of sectionButtons) {
   button.addEventListener("click", toggleSections);
 }
 for (let navLink of navLinks) {
+  blurOnClick(navLink);
   navLink.addEventListener("click", function (e) {
     e.preventDefault();
-    if (this !== document.querySelector(".header__button") && document.querySelector(".navblock__lower--show")) {
-      openMenu();
-    }
     let target = this.getAttribute("href");
-    let button = document.querySelector(`${target}`);
-    const scrollY = button.getBoundingClientRect().top + window.pageYOffset;
-    if (button.classList.contains("expanded")) window.scrollTo({ top: scrollY, behavior: "smooth" });
-    else {
-      let click = new Event("click");
-      button.dispatchEvent(click);
+    let timer = 200;
+    if (this !== document.querySelector(".header__button") && document.querySelector(".navblock__lower--show")) {
+      // close mobile menu when link is pressed
+      toggleMenu();
+    } else {
+      timer = 0;
     }
+    // As my mobile menu applies position fixed to the body, I have to wait before navigating.
+    // Otherwise use a time of 0ms, making it wait until other event handlers finish
+    setTimeout(function () {
+      let button = document.querySelector(`${target}`);
+      if (button.classList.contains("expanded")) {
+        setTimeout(function () {
+          const scrollY = button.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({ top: scrollY, behavior: "smooth" });
+        }, timer);
+      } else {
+        let click = new Event("click");
+        button.dispatchEvent(click);
+      }
+    }, timer);
   });
 }
 
@@ -322,13 +334,3 @@ document.addEventListener("keydown", function (e) {
     }
   }
 });
-
-// let cls = 0;
-// new PerformanceObserver((entryList) => {
-//   for (const entry of entryList.getEntries()) {
-//     if (!entry.hadRecentInput) {
-//       cls += entry.value;
-//       console.log("Current CLS value:", cls, entry);
-//     }
-//   }
-// }).observe({ type: "layout-shift", buffered: true });

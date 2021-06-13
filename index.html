@@ -19,14 +19,13 @@
     <link rel="preload" as="style" href="https://use.typekit.net/hkg2eum.css" />
     <link rel="stylesheet" href="https://use.typekit.net/hkg2eum.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://use.typekit.net/hkg2eum.css" /></noscript>
-    <link rel="preload" as="fetch" href="./blogposts/wp-json/wp/v2/posts?per_page=3&orderby=date&_embed" />
   </head>
   <body class="no-js">
     <div class="page-container">
       <div class="modal">
         <figure class="modal__inner">
           <button class="modal__close">&#x2715;</button>
-          <img class="modal__image" />
+          <img src="data:," class="modal__image" alt="" width="0" height="0" />
           <figcaption class="modal__caption"></figcaption>
         </figure>
       </div>
@@ -44,7 +43,7 @@
                 src="./media/torbjornlogo.svg"
                 alt="Torbjørn Haukås - Front-end developer"
                 height="83"
-                width="73.33"
+                width="74"
               />
             </div>
             <div class="navblock__barwrap">
@@ -145,13 +144,13 @@
                     <h3 class="content__title smallcaps--all">Contact</h3>
                     <ul class="about__list">
                       <li>
-                        <a href="mailto:torbjornhaukas@gmail.com" class="about__link about__link--email">
+                        <a href="mailto:torbjornhaukas@gmail.com" class="about__link about__link--email" rel="me" target="_blank">
                           <img loading="lazy" src="./media/mail_icon.svg" alt="Mail Icon" width="68" height="66" />
                           <span class="smallcaps--all">Email</span>
                         </a>
                       </li>
                       <li>
-                        <a href="https://github.com/Hawkas" class="about__link about__link--github" rel="noreferrer noopener">
+                        <a href="https://github.com/Hawkas" class="about__link about__link--github" rel="me" target="_blank">
                           <img loading="lazy" src="./media/github_icon.svg" alt="Github Icon" width="68" height="66" />
                           <span class="smallcaps--all">Github</span>
                         </a>
@@ -160,7 +159,8 @@
                         <a
                           href="https://www.linkedin.com/in/torbj%C3%B8rn-hauk%C3%A5s-7933911b5/"
                           class="about__link about__link--linkedin"
-                          rel="noreferrer noopener"
+                          rel="me"
+                          target="_blank"
                         >
                           <img loading="lazy" src="./media/linkedin_icon.svg" alt="LinkedIn Icon" width="68" height="66" />
                           <span class="smallcaps--all">LinkedIn</span>
