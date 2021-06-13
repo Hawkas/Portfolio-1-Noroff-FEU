@@ -11,13 +11,15 @@
     />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
-    <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="dns-prefetch" href="https://use.typekit.net" />
     <link rel="preconnect" href="https://p.typekit.net" />
+    <link rel="dns-prefetch" href="https://p.typekit.net" />
     <link rel="preload" as="style" href="https://use.typekit.net/hkg2eum.css" />
     <link rel="stylesheet" href="https://use.typekit.net/hkg2eum.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://use.typekit.net/hkg2eum.css" /></noscript>
+    <link rel="preload" as="fetch" href="./blogposts/wp-json/wp/v2/posts?per_page=3&orderby=date&_embed" />
   </head>
   <body class="no-js">
     <div class="page-container">
@@ -788,59 +790,13 @@
             </h2>
             <div id="blog-content" class="content__wrap">
               <ul class="content content--blog">
-                <li>
-                  <article class="blog">
-                    <a href="" class="blog__linkwrap" rel="noreferrer noopener" target="_blank">
-                      <div class="blog__imagewrap">
-                        <img loading="lazy" src="./media/hades-1440w.jpg" width="768" height="320" alt="API fill this in" />
-                      </div>
-                      <div class="blog__textblock">
-                        <h3 class="blog__header smallcaps--all">Enter The Gungeon - How To Find Secret Rooms</h3>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies sed odio quisque quam id sem placerat
-                          consectetur malesuada. Mauris libero dui est viverra enim interdum proin a. Velit varius enim volutpat
-                          enim sit faucibus. Mus sed nibh mauris faucibus lectus leo morbi…
-                        </p>
-                        <time datetime="29/05/2021">May 29th, 2021</time>
-                      </div>
-                    </a>
-                  </article>
-                </li>
-                <li>
-                  <article class="blog">
-                    <a href="" class="blog__linkwrap" rel="noreferrer noopener" target="_blank">
-                      <div class="blog__imagewrap">
-                        <img loading="lazy" src="./media/hades-1440w.jpg" width="768" height="320" alt="API fill this in" />
-                      </div>
-                      <div class="blog__textblock">
-                        <h3 class="blog__header smallcaps--all">Enter The Gungeon - How To Find Secret Rooms</h3>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies sed odio quisque quam id sem placerat
-                          consectetur malesuada. Mauris libero dui est viverra enim interdum proin a. Velit varius enim volutpat
-                          enim sit faucibus. Mus sed nibh mauris faucibus lectus leo morbi…
-                        </p>
-                        <time datetime="29/05/2021">May 29th, 2021</time>
-                      </div>
-                    </a>
-                  </article>
-                </li>
-                <li>
-                  <article class="blog">
-                    <a href="" class="blog__linkwrap" rel="noreferrer noopener" target="_blank">
-                      <div class="blog__imagewrap">
-                        <img loading="lazy" src="./media/hades-1440w.jpg" width="768" height="320" alt="API fill this in" />
-                      </div>
-                      <div class="blog__textblock">
-                        <h3 class="blog__header smallcaps--all">Enter The Gungeon - How To Find Secret Rooms</h3>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies sed odio quisque quam id sem placerat
-                          consectetur malesuada. Mauris libero dui est viverra enim interdum proin a. Velit varius enim volutpat
-                          enim sit faucibus. Mus sed nibh mauris faucibus lectus leo morbi…
-                        </p>
-                        <time datetime="29/05/2021">May 29th, 2021</time>
-                      </div>
-                    </a>
-                  </article>
+                <li class="loader-wrap">
+                  <div class="lds-ellipsis">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
                 </li>
               </ul>
             </div>
