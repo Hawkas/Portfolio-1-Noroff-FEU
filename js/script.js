@@ -16,6 +16,7 @@ const modal = document.querySelector(".modal");
 const modalCaption = document.querySelector(".modal__caption");
 const modalClose = document.querySelector(".modal__close");
 const modalImage = document.querySelector(".modal__image");
+const linkButtons = document.querySelectorAll(".projects__link");
 let modalOpen = false;
 let lastFocusedElement = "";
 
@@ -313,7 +314,9 @@ for (let button of projectButtons) {
   blurOnClick(button);
   button.addEventListener("click", toggleProjects);
 }
-
+for (let button of linkButtons) {
+  blurOnClick(button);
+}
 modal.addEventListener("click", closeModal);
 modalClose.addEventListener("click", closeModal);
 modalImage.addEventListener("click", function (e) {
